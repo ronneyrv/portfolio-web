@@ -15,7 +15,7 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
           <img
             src={profileImage}
             alt={profile.name}
-            className="w-72 h-72 rounded-full object-cover border-4 border-blue-500 shadow-2xl hover:scale-105 transition-all duration-300"
+            className="w-72 h-72 rounded-full object-cover border-2 border-blue-500 shadow-2xl hover:scale-105 transition-all duration-300"
           />
         </div>
 
