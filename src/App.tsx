@@ -8,7 +8,7 @@ import Footer from "./components/Footer/Footer"
 function App() {
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="w-screen min-h-screen flex flex-col bg-linear-to-br from-slate-950 via-slate-900 to-black">
       <Navbar />
       <main className="grow">
         <Routes>
