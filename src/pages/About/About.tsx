@@ -4,7 +4,7 @@ export default function About() {
   const profile = {
     name: "Ronney Rocha",
     role: "Full Stack Developer | Backend Developer | Java ",
-    bio: "Passionate about building web applications and learning new technologies. With experience in both frontend and backend development, I enjoy creating seamless user experiences and efficient server-side solutions.",
+    bio: "Graduado em Engenharia de Produção e graduando em Análise e Desenvolvimento de Sistemas, com experiência prática no desenvolvimento de aplicações e ferramentas utilizadas em ambiente operacional. Atualmente desenvolvo soluções internas para apoio às operações do meu trabalho, criando aplicações web completas desde modelagem de banco de dados até implementação de interfaces, APIs e regras de negócio.",
     skills: [
       "React",
       "Node.js",
@@ -16,7 +16,7 @@ export default function About() {
       "Docker",
     ],
     github: "https://github.com/ronneyrv",
-    linkedin: "https://www.linkedin.com/in/ronney-rocha-9b1a4b1ba/",
+    linkedin: "https://www.linkedin.com/in/ronney-rocha",
   };
   return <ProfileCard profile={profile} />;
 }
