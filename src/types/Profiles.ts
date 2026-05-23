@@ -5,7 +5,13 @@ export interface Profile {
 
   bio: string;
 
-  skills: string[];
+  backend: string[];
+
+  frontend: string[];
+
+  database: string[];
+
+  tools: string[];
 
   github: string;
 

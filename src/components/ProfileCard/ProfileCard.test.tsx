@@ -2,19 +2,33 @@ import { render, screen } from "@testing-library/react";
 import ProfileCard from "./ProfileCard";
 
 const profile = {
-  name: "Ronney",
-  role: "Backend",
-  bio: "Developer",
-  skills: ["Java"],
+  name: "Ronney Rocha",
+
+  role: "Full Stack Developer",
+
+  bio: "Graduado em Engenharia",
+
+  backend: ["Java", "Spring Boot", "Node.js"],
+
+  frontend: ["React", "TypeScript", "Tailwind CSS"],
+
+  database: ["PostgreSQL", "MySQL"],
+
+  tools: ["Docker", "Git"],
+
   github: "github",
+
   linkedin: "linkedin",
 };
 
 test("renders profile card", () => {
   render(<ProfileCard profile={profile} />);
 
-  expect(screen.getByText("Ronney")).toBeInTheDocument();
-  expect(screen.getByText("Backend")).toBeInTheDocument();
-  expect(screen.getByText("Developer")).toBeInTheDocument();
+  expect(screen.getByText("Ronney Rocha")).toBeInTheDocument();
+  expect(screen.getByText("Full Stack Developer")).toBeInTheDocument();
+  expect(screen.getByText("Graduado em Engenharia")).toBeInTheDocument();
   expect(screen.getByText("Java")).toBeInTheDocument();
+  expect(screen.getByText("React")).toBeInTheDocument();
+  expect(screen.getByText("PostgreSQL")).toBeInTheDocument();
+  expect(screen.getByText("Docker")).toBeInTheDocument();
 });

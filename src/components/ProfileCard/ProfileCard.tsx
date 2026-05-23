@@ -28,15 +28,59 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
             {profile.bio}
           </p>
 
-          <div className="flex flex-wrap gap-3 mt-8">
-            {profile.skills.map((skill) => (
-              <span
-                key={skill}
-                className="px-4 y-2 rounded-full bg-slate-800 text-sm text-white hover:bg-blue-600 hover:scale-105 transition-all"
-              >
-                {skill}
-              </span>
-            ))}
+          <div className="flex flex-col lg:flex-row flex-wrap gap-3 mt-4">
+            <div className="flex flex-col">
+              <h3 className="text-2xl text-slate-400 mt-4 animate-pulse">Frontend</h3>
+              <div className="flex gap-2">
+                {profile.frontend.map((frontend) => (
+                  <span
+                    key={frontend}
+                    className="px-3 py-1 rounded-full bg-slate-800 text-sm text-white hover:bg-blue-600 hover:scale-105 transition-all"
+                  >
+                    {frontend}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="flex flex-col">
+              <h3 className="text-2xl text-slate-400 mt-4 animate-pulse">Backend</h3>
+              <div className="flex gap-2">
+                {profile.backend.map((backend) => (
+                  <span
+                    key={backend}
+                    className="px-3 py-1 rounded-full bg-slate-800 text-sm text-white hover:bg-blue-600 hover:scale-105 transition-all"
+                  >
+                    {backend}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="flex flex-col">
+              <h3 className="text-2xl text-slate-400 mt-4 animate-pulse">Database</h3>
+              <div className="flex gap-2">
+                {profile.database.map((database) => (
+                  <span
+                    key={database}
+                    className="px-3 py-1 rounded-full bg-slate-800 text-sm text-white hover:bg-blue-600 hover:scale-105 transition-all"
+                  >
+                    {database}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="flex flex-col">
+              <h3 className="text-2xl text-slate-400 mt-4 animate-pulse">Tools</h3>
+              <div className="flex gap-2">
+                {profile.tools.map((tool) => (
+                  <span
+                    key={tool}
+                    className="px-3 py-1 rounded-full bg-slate-800 text-sm text-white hover:bg-blue-600 hover:scale-105 transition-all"
+                  >
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
 
           <div className="flex gap-6 mt-10">

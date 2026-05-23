@@ -14,17 +14,17 @@ export default function Projects() {
       }, 5000);
     }
 
-    // Limpa o timer se o componente for desmontado ou parar de carregar
     return () => clearTimeout(timer);
   }, [loading]);
 
   if (loading) {
     return (
       <div className="w-full flex flex-col items-center justify-center mt-10 space-y-2">
-        <p className="text-lg animate-pulse">Loading projects...</p>
+        <p className="text-lg animate-pulse">Carregando projetos...</p>
         {takeLonger && (
           <p className="text-sm text-amber-600 max-w-md mx-auto text-center">
-            The Render free server is booting up. This process can take up to 2 minutes, thank you for your patience!
+            O servidor gratuito do Render está iniciando. Esse processo pode levar até 2 minutos, obrigado pela paciência!
+            {/*The Render free server is booting up. This process can take up to 2 minutes, thank you for your patience!*/}
           </p>
         )}
       </div>
