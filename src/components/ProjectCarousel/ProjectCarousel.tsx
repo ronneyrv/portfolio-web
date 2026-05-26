@@ -39,7 +39,7 @@ export default function ProjectCarousel({ projects }: Props) {
       }}
     >
       {projects.map(project => (
-        <SwiperSlide key={project.id} className="flex h-auto">
+        <SwiperSlide key={project.id} className="flex h-auto mt-2">
           <ProjectCard project={project} />
         </SwiperSlide>
       ))}
