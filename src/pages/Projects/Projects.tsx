@@ -36,8 +36,8 @@ export default function Projects() {
   }
 
   return (
-    <section className="w-full grow px-8 lg:px-20 py-16">
-      <h1 className="text-center text-6xl font-bold mb-16">Projects</h1>
+    <section className="w-full grow px-8 lg:px-20 py-10">
+      <h1 className="text-center text-6xl font-bold mb-10">Projects</h1>
       <ProjectCarousel projects={projects} />
     </section>
   );

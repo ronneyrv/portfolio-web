@@ -9,18 +9,18 @@ export default function Navbar() {
     <header className="w-full bg-slate-950 border-b border-slate-800">
       <nav className="h-24 px-8 lg:px-20 flex justify-between items-center">
         <Link to="/" className="text-3xl md:text-5xl font-bold">
-          Portfolio
+          Portfólio
         </Link>
 
         <div className="hidden md:flex gap-8 text-lg">
           <Link to="/" className="hover:text-blue-400 transition">
-            Home
+            Início
           </Link>
           <Link to="/about" className="hover:text-blue-400 transition">
-            About
+            Sobre min
           </Link>
           <Link to="/projects" className="hover:text-blue-400 transition">
-            Projects
+            Projetos
           </Link>
         </div>
         <button
