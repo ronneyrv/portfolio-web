@@ -8,17 +8,11 @@ O projeto apresenta informações profissionais, habilidades, experiência e pro
 
 Acesse a aplicação:
 
-[Portfolio Web](SEU_LINK_VERCEL)
+[Portfolio Web](https://github.com/ronneyrv/portfolio-web)
 
 API:
 
 [Portfolio API](https://portfolio-api-5kec.onrender.com/projects)
-
----
-
-## 📸 Preview
-
-<img width="100%" src="./src/assets/preview.png"/>
 
 ---
 
