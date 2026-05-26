@@ -1,73 +1,173 @@
-# React + TypeScript + Vite
+# 🚀 Portfolio Web
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação frontend do meu portfólio pessoal desenvolvida com React, TypeScript e Tailwind CSS, consumindo uma API própria construída em Spring Boot.
 
-Currently, two official plugins are available:
+O projeto apresenta informações profissionais, habilidades, experiência e projetos desenvolvidos, com integração dinâmica ao backend e armazenamento de imagens em Cloudinary.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🔗 Demo
 
-## React Compiler
+Acesse a aplicação:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+[Portfolio Web](SEU_LINK_VERCEL)
 
-## Expanding the ESLint configuration
+API:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+[Portfolio API](https://portfolio-api-5kec.onrender.com/projects)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 📸 Preview
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+<img width="100%" src="./src/assets/preview.png"/>
+
+---
+
+## ✨ Funcionalidades
+
+- Navegação entre páginas
+- Layout responsivo
+- Menu mobile responsivo
+- Página Home
+- Página About
+- Carrossel de projetos
+- Consumo de API REST
+- Integração com Cloudinary
+- Ordenação personalizada dos projetos
+- Cards interativos
+- Links para GitHub e Demo
+- Testes unitários
+
+---
+
+## 🛠️ Tecnologias
+
+### Frontend
+
+- React
+- TypeScript
+- Tailwind CSS
+- React Router DOM
+- Axios
+- Swiper
+- React Icons
+
+### Testes
+
+- Vitest
+- Testing Library
+
+### Backend
+
+- Spring Boot
+- Java
+- PostgreSQL
+- Cloudinary
+
+---
+
+## 📂 Estrutura do Projeto
+
+```bash
+src
+├── assets
+├── components
+│   ├── Footer
+│   ├── Navbar
+│   ├── ProfileCard
+│   ├── ProjectCard
+│   └── ProjectCarousel
+│
+├── pages
+│   ├── Home
+│   ├── About
+│   └── Projects
+│
+├── services
+│   └── api.ts
+│
+├── tests
+│
+├── types
+│
+└── routes
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ⚙️ Instalação
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Clone o projeto:
+
+```bash
+git clone https://github.com/ronneyrv/portfolio-web.git
 ```
+
+Entrar na pasta:
+
+```bash
+cd portfolio-web
+```
+
+Instalar dependências:
+
+```bash
+npm install
+```
+
+Criar arquivo:
+
+```bash
+.env
+```
+
+Adicionar:
+
+```env
+VITE_API_URL=https://portfolio-api-5kec.onrender.com
+```
+
+Rodar projeto:
+
+```bash
+npm run dev
+```
+
+---
+
+## 🧪 Executando testes
+
+```bash
+npm run test
+```
+
+---
+
+## 🌐 Deploy
+
+Frontend:
+
+- Vercel
+
+Backend:
+
+- Render
+
+Banco:
+
+- PostgreSQL (Render)
+
+Imagens:
+
+- Cloudinary
+
+---
+
+## 👨‍💻 Autor
+
+Ronney Rocha
+
+GitHub:
+https://github.com/ronneyrv
+
+LinkedIn:
+https://www.linkedin.com/in/ronney-rocha
