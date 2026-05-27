@@ -9,5 +9,5 @@ test("renders navbar", () => {
     </BrowserRouter>,
   );
 
-  expect(screen.getByText("Home")).toBeInTheDocument();
+  expect(screen.getByText("Início")).toBeInTheDocument();
 });

@@ -9,7 +9,7 @@ export default function Hero() {
         await api.get("/ping");
       } catch (error) {
         console.error("Erro ao acordar API:", error);
-      };
+      }
     }
 
     warmUpApi();
@@ -33,20 +33,10 @@ export default function Hero() {
         <div className=" flex gap-4 mt-10">
           <Link
             to="/about"
-            className="bg-blue-600 px-6 py-3 rounded-xl hover:bg-blue-700 transition"
+            className="bg-blue-600 px-6 py-3 rounded-xl hover:bg-blue-700  animate-pulse"
           >
-            Sobre mim
+            Mais sobre mim
           </Link>
-
-          <Link
-            to="/projects"
-            className="border border-slate-600 px-6 py-3 rounded-xl hover:border-blue-500 transition"
-          >
-            Ver Projetos
-          </Link>
-          <div>
-            
-          </div>
         </div>
       </div>
     </section>
