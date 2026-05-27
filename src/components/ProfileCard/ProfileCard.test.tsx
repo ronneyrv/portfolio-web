@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import ProfileCard from "./ProfileCard";
+import { MemoryRouter } from "react-router-dom";
 
 const profile = {
   name: "Ronney Rocha",
@@ -22,7 +23,11 @@ const profile = {
 };
 
 test("renders profile card", () => {
-  render(<ProfileCard profile={profile} />);
+  render(
+    <MemoryRouter>
+      <ProfileCard profile={profile} />
+    </MemoryRouter>,
+  );
 
   expect(screen.getByText("Ronney Rocha")).toBeInTheDocument();
   expect(screen.getByText("Full Stack Developer")).toBeInTheDocument();

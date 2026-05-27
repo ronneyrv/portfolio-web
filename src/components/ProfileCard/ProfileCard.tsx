@@ -2,6 +2,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import profileImage from "../../assets/profile.jpeg";
 
 import type { Profile } from "../../types/Profiles";
+import { Link } from "react-router-dom";
 
 interface ProfileCardProps {
   profile: Profile;
@@ -30,7 +31,9 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
 
           <div className="flex flex-col lg:flex-row flex-wrap gap-3 mt-4">
             <div className="flex flex-col">
-              <h3 className="text-2xl text-slate-400 mt-4 animate-pulse">Frontend</h3>
+              <h3 className="text-2xl text-slate-400 mt-4 animate-pulse">
+                Frontend
+              </h3>
               <div className="flex gap-2">
                 {profile.frontend.map((frontend) => (
                   <span
@@ -43,7 +46,9 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
               </div>
             </div>
             <div className="flex flex-col">
-              <h3 className="text-2xl text-slate-400 mt-4 animate-pulse">Backend</h3>
+              <h3 className="text-2xl text-slate-400 mt-4 animate-pulse">
+                Backend
+              </h3>
               <div className="flex gap-2">
                 {profile.backend.map((backend) => (
                   <span
@@ -56,7 +61,9 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
               </div>
             </div>
             <div className="flex flex-col">
-              <h3 className="text-2xl text-slate-400 mt-4 animate-pulse">Database</h3>
+              <h3 className="text-2xl text-slate-400 mt-4 animate-pulse">
+                Database
+              </h3>
               <div className="flex gap-2">
                 {profile.database.map((database) => (
                   <span
@@ -69,7 +76,9 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
               </div>
             </div>
             <div className="flex flex-col">
-              <h3 className="text-2xl text-slate-400 mt-4 animate-pulse">Tools</h3>
+              <h3 className="text-2xl text-slate-400 mt-4 animate-pulse">
+                Tools
+              </h3>
               <div className="flex gap-2">
                 {profile.tools.map((tool) => (
                   <span
@@ -83,7 +92,7 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
             </div>
           </div>
 
-          <div className="flex gap-6 mt-10">
+          <div className="flex flex-row items-center gap-6 mt-8">
             <a
               href={profile.github}
               target="_blank"
@@ -92,7 +101,6 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
             >
               <FaGithub size={35} />
             </a>
-
             <a
               href={profile.linkedin}
               target="_blank"
@@ -101,6 +109,12 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
             >
               <FaLinkedin size={35} />
             </a>
+            <Link
+              to="/projects"
+              className="bg-blue-600 px-4 py-1 rounded-xl hover:text-blue-400 hover:scale-110 transition-all"
+            >
+              Ver Projetos
+            </Link>
           </div>
         </div>
       </div>
