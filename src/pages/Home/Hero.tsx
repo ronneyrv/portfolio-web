@@ -1,6 +1,20 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { api } from "../../services/api";
 
 export default function Hero() {
+  useEffect(() => {
+    async function warmUpApi() {
+      try {
+        await api.get("/ping");
+      } catch (error) {
+        console.error("Erro ao acordar API:", error);
+      };
+    }
+
+    warmUpApi();
+  }, []);
+
   return (
     <section className="min-h-[calc(100vh-300px)] px-8 lg:px-20 flex items-center">
       <div className="max-w-7xl mx-auto w-full">
