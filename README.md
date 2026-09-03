@@ -12,7 +12,7 @@ Acesse a aplicação:
 
 API:
 
-[Portfolio API](https://portfolio-api-5kec.onrender.com/projects)
+[Portfolio API](https://portfolio-api.ronneyrocha.com.br/projects)
 
 ---
 
@@ -117,7 +117,7 @@ Criar arquivo:
 Adicionar:
 
 ```env
-VITE_API_URL=https://portfolio-api-5kec.onrender.com
+VITE_API_URL=https://portfolio-api.ronneyrocha.com.br
 ```
 
 Rodar projeto:
