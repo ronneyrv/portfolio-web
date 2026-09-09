@@ -9,7 +9,7 @@ interface ProjectCardProps {
 export default function ProjectCard({ project }: ProjectCardProps) {
   return (
     <article className="group bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 shaadow-lg transition-all duration-300 hover:-translate-y-2 hover:border-blue-500 hover:shadow-2xl h-115 flex flex-col">
-      <ProjectImage src={project.imageUrl} alt={project.title} />
+      <ProjectImage src={project.coverImageUrl} alt={project.title} />
       <div className="p-6 flex flex-col flex-1">
         <h2
           className="text-2xl font-bold text-white line-clamp-1"
@@ -35,18 +35,21 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           >
             <FaGithub size={22} />
           </a>
-          <a
-            href={project.demoUrl}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Demo"
-            className="
-            text-white
-            hover:text-green-400
-            transition-colors"
-          >
-            <FaDesktop size={22} />
-          </a>
+
+          {project.demoUrl && (
+            <a
+              href={project.demoUrl}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Demo"
+              className="
+              text-white
+              hover:text-green-400
+              transition-colors"
+            >
+              <FaDesktop size={22} />
+            </a>
+          )}
         </div>
       </div>
     </article>
