@@ -20,12 +20,11 @@ export function useProjects() {
     }
 
     fetchProjects();
-
   }, []);
 
   return {
     projects,
     loading,
     error,
-  }
+  };
 }

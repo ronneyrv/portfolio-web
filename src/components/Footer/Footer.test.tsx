@@ -10,6 +10,6 @@ test("renders footer", () => {
   );
 
   expect(
-    screen.getByRole("heading", { level: 3, name: "Ronney Rocha" })
+    screen.getByRole("heading", { level: 3, name: "Ronney Rocha" }),
   ).toBeInTheDocument();
 });

@@ -23,7 +23,8 @@ export default function Projects() {
         <p className="text-lg animate-pulse">Carregando projetos...</p>
         {takeLonger && (
           <p className="text-sm text-amber-600 max-w-md mx-auto text-center">
-            O servidor gratuito do Render está iniciando. Esse processo pode levar até 2 minutos, obrigado pela paciência!
+            O servidor gratuito do Render está iniciando. Esse processo pode
+            levar até 2 minutos, obrigado pela paciência!
             {/*The Render free server is booting up. This process can take up to 2 minutes, thank you for your patience!*/}
           </p>
         )}

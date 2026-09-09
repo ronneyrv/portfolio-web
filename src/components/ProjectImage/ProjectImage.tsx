@@ -12,13 +12,15 @@ export default function ProjectImage({ src, alt }: Props) {
   const fallback = "https://placehold.co/800x400/0f172a/ffffff?text=Project";
 
   return (
-    <div className="relative
+    <div
+      className="relative
   h-56
   bg-slate-100
   flex
   items-center
   justify-center
-  overflow-hidden">
+  overflow-hidden"
+    >
       <img
         src={error ? fallback : optimizeImage(src)}
         alt={alt}

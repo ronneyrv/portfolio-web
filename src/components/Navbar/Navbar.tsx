@@ -33,18 +33,28 @@ export default function Navbar() {
         </button>
       </nav>
       {menuOpen && (
-        <div
-          className="md:hidden absolute top-24 right-0 min-w-50 bg-slate-900 border-t border-slate-800 rounded-b-2xl rounded-tl-3xl px-3 py-3 flex flex-col gap-2 z-50 shadow-xl"
-        >
-          <Link to="/" onClick={() => setMenuOpen(false)} className="block px-3 py-2 rounded-lg transition-all duration-300 hover:bg-slate-800 hover:text-blue-400 ">
+        <div className="md:hidden absolute top-24 right-0 min-w-50 bg-slate-900 border-t border-slate-800 rounded-b-2xl rounded-tl-3xl px-3 py-3 flex flex-col gap-2 z-50 shadow-xl">
+          <Link
+            to="/"
+            onClick={() => setMenuOpen(false)}
+            className="block px-3 py-2 rounded-lg transition-all duration-300 hover:bg-slate-800 hover:text-blue-400 "
+          >
             Início
           </Link>
 
-          <Link to="/about" onClick={() => setMenuOpen(false)} className="block px-3 py-2 rounded-lg transition-all duration-300 hover:bg-slate-800 hover:text-blue-400 ">
+          <Link
+            to="/about"
+            onClick={() => setMenuOpen(false)}
+            className="block px-3 py-2 rounded-lg transition-all duration-300 hover:bg-slate-800 hover:text-blue-400 "
+          >
             Sobre mim
           </Link>
 
-          <Link to="/projects" onClick={() => setMenuOpen(false)} className="block px-3 py-2 rounded-lg transition-all duration-300 hover:bg-slate-800 hover:text-blue-400 ">
+          <Link
+            to="/projects"
+            onClick={() => setMenuOpen(false)}
+            className="block px-3 py-2 rounded-lg transition-all duration-300 hover:bg-slate-800 hover:text-blue-400 "
+          >
             Projetos
           </Link>
         </div>
