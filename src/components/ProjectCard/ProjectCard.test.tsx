@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
 import ProjectCard from "./ProjectCard";
 
 const project = {
@@ -15,7 +16,11 @@ const project = {
 };
 
 test("renders project card", () => {
-  render(<ProjectCard project={project} />);
+  render(
+    <MemoryRouter>
+      <ProjectCard project={project} />
+    </MemoryRouter>,
+  );
   expect(screen.getByText("Portfolio")).toBeInTheDocument();
   expect(screen.getByText("Test")).toBeInTheDocument();
 });

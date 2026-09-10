@@ -1,4 +1,5 @@
-import { FaDesktop, FaGithub } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import type { Project } from "../../types/Projects";
 import ProjectImage from "../ProjectImage/ProjectImage";
 
@@ -36,20 +37,12 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             <FaGithub size={22} />
           </a>
 
-          {project.demoUrl && (
-            <a
-              href={project.demoUrl}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Demo"
-              className="
-              text-white
-              hover:text-green-400
-              transition-colors"
-            >
-              <FaDesktop size={22} />
-            </a>
-          )}
+          <Link
+            to={`/projects/${project.slug}`}
+            className="text-white hover:text-green-400 transition-colors"
+          >
+            Saiba mais
+          </Link>
         </div>
       </div>
     </article>
