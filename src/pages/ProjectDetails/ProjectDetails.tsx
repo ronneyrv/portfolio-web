@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useProject } from "../../hooks/useProject";
 import { FaGithub, FaLink } from "react-icons/fa";
 import ProjectImage from "../../components/ProjectImage/ProjectImage";
+import ProjectGallery from "../../components/ProjectGallery/ProjectGallery";
 
 export default function ProjectDetails() {
   const { slug } = useParams<{ slug: string }>();
@@ -39,6 +40,8 @@ export default function ProjectDetails() {
 
       <div className="max-w-4xl mx-auto">
         <ProjectImage src={project.coverImageUrl} alt={project.title} />
+
+        <ProjectGallery images={project.images} />
 
         <p className="mt-6 text-lg text-gray-300 text-center">
           {project.shortDescription}

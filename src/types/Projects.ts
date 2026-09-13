@@ -1,3 +1,10 @@
+export interface ProjectImage {
+  id: number;
+  imageUrl: string;
+  displayOrder: number;
+  altText: string | null;
+}
+
 export interface Project {
   id: number;
   title: string;
@@ -9,4 +16,5 @@ export interface Project {
   demoUrl: string | null;
   displayOrder: number;
   createdAt: string | null;
+  images: ProjectImage[];
 }

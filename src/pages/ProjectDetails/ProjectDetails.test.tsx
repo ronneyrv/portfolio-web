@@ -21,6 +21,7 @@ const project = {
   demoUrl: "https://project.com",
   displayOrder: 1,
   createdAt: null,
+  images: [],
 };
 
 function renderProjectDetails() {
