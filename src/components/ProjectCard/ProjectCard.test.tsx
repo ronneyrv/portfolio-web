@@ -13,6 +13,7 @@ const project = {
   demoUrl: "demo",
   displayOrder: 1,
   createdAt: null,
+  images: [],
 };
 
 test("renders project card", () => {
