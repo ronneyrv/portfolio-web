@@ -1,4 +1,4 @@
-import { FaGithub } from "react-icons/fa";
+import { FaArrowRight, FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import type { Project } from "../../types/Projects";
 import ProjectImage from "../ProjectImage/ProjectImage";
@@ -26,7 +26,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           {project.description}
         </p>
 
-        <div className="flex gap-4 mt-6">
+        <div className="flex items-center justify-between gap-4 mt-6">
           <a
             href={project.githubUrl}
             target="_blank"
@@ -39,9 +39,10 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
           <Link
             to={`/projects/${project.slug}`}
-            className="text-white hover:text-green-400 transition-colors"
+            className="flex items-center gap-2 text-white hover:text-blue-400 transition-colors"
           >
             Saiba mais
+            <FaArrowRight size={14} />
           </Link>
         </div>
       </div>
