@@ -16,26 +16,34 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="min-h-[calc(100vh-300px)] px-8 lg:px-20 flex items-center">
-      <div className="max-w-7xl mx-auto w-full">
-        <h1 className="text-6xl md:text-7xl font-bold mt-4">Ronney Rocha</h1>
+    <section
+      id="home"
+      className="h-[calc(100vh-97px)] px-8 lg:px-20 flex items-center scroll-mt-24"
+    >
+      <div className="w-full -translate-y-10">
+        <p className="text-lg text-slate-400 mb-4">Olá, eu sou</p>
 
-        <h2 className="text-2xl text-slate-300 mt-6">
+        <h1 className="text-6xl md:text-7xl font-bold">Ronney Rocha</h1>
+
+        <h2 className="text-2xl md:text-3xl text-slate-300 mt-6">
           Full Stack Developer
-          <br />
-          React | Node | Java | Spring Boot
         </h2>
 
-        <p className="mt-8 max-w-2xl text-slate-400 leading-8">
-          Desenvolvendo aplicações web modernas e backend escaláveis.
+        <p className="mt-4 text-lg text-slate-400">
+          React | TypeScript | Java | Spring Boot
         </p>
 
-        <div className=" flex gap-4 mt-10">
+        <p className="mt-8 max-w-2xl text-lg text-slate-400 leading-8">
+          Desenvolvedor focado na construção de aplicações web modernas, APIs
+          REST e soluções de backend.
+        </p>
+
+        <div className="mt-10">
           <Link
-            to="/about"
-            className="bg-blue-600 px-6 py-3 rounded-xl hover:bg-blue-700  animate-pulse"
+            to="/#projects"
+            className="bg-blue-600 px-6 py-3 rounded-xl hover:bg-blue-700 transition"
           >
-            Mais sobre mim
+            Ver meus projetos
           </Link>
         </div>
       </div>
