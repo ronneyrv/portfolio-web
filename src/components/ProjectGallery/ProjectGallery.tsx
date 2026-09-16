@@ -18,7 +18,7 @@ export default function ProjectGallery({ images }: ProjectGalleryProps) {
   }
 
   return (
-    <div className="mt-10">
+    <div className="w-full min-w-0">
       <Swiper
         modules={[Navigation, Pagination]}
         navigation
@@ -32,6 +32,7 @@ export default function ProjectGallery({ images }: ProjectGalleryProps) {
             <ProjectImageComponent
               src={image.imageUrl}
               alt={image.altText ?? "Project image"}
+              variant="gallery"
             />
           </SwiperSlide>
         ))}

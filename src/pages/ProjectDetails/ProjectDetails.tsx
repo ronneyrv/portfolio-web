@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useProject } from "../../hooks/useProject";
 import { FaGithub, FaLink } from "react-icons/fa";
-import ProjectImage from "../../components/ProjectImage/ProjectImage";
 import ProjectGallery from "../../components/ProjectGallery/ProjectGallery";
+import type { ProjectImage } from "../../types/Projects";
 
 export default function ProjectDetails() {
   const { slug } = useParams<{ slug: string }>();
@@ -34,43 +34,59 @@ export default function ProjectDetails() {
     );
   }
 
+  const galleryImages: ProjectImage[] = [
+    {
+      id: 0,
+      imageUrl: project.coverImageUrl,
+      displayOrder: 0,
+      altText: project.title,
+    },
+    ...project.images,
+  ];
+
   return (
     <section className="w-full grow px-8 lg:px-20 py-10">
-      <h1 className="text-center text-4xl font-bold mb-10">{project.title}</h1>
+      <h1 className="text-center text-4xl font-bold mb-6 lg:mb-10">
+        {project.title}
+      </h1>
 
-      <div className="max-w-4xl mx-auto">
-        <ProjectImage src={project.coverImageUrl} alt={project.title} />
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-10 items-start">
+          <ProjectGallery images={galleryImages} />
 
-        <ProjectGallery images={project.images} />
+          <div className="flex flex-col">
+            <p className="text-lg text-gray-300 leading-relaxed">
+              {project.shortDescription}
+            </p>
 
-        <p className="mt-6 text-lg text-gray-300 text-center">
-          {project.shortDescription}
-        </p>
+            <p className="mt-8 text-gray-300 leading-relaxed">
+              {project.description}
+            </p>
 
-        <div className="mt-8">
-          <p className="text-gray-300 leading-relaxed">{project.description}</p>
+            <div className="flex items-center gap-6 mt-8">
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 text-white hover:text-blue-400 transition-colors"
+              >
+                <FaGithub size={22} />
+                GitHub
+              </a>
 
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 mt-8 text-white hover:text-blue-400 transition-colors"
-          >
-            <FaGithub size={22} />
-            GitHub
-          </a>
-
-          {project.demoUrl && (
-            <a
-              href={project.demoUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 ml-6 text-white hover:text-green-400 transition-colors"
-            >
-              <FaLink size={22} />
-              Demo
-            </a>
-          )}
+              {project.demoUrl && (
+                <a
+                  href={project.demoUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 text-white hover:text-green-400 transition-colors"
+                >
+                  <FaLink size={22} />
+                  Demo
+                </a>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </section>
