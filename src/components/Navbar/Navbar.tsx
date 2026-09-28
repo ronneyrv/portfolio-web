@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import AdminAccess from "../AdminAccess/AdminAccess";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -10,7 +11,7 @@ export default function Navbar() {
       <nav className="h-24 px-8 lg:px-20 flex justify-between items-center">
         <span className="text-3xl md:text-5xl font-bold">Portfólio</span>
 
-        <div className="hidden md:flex gap-8 text-lg">
+        <div className="hidden md:flex items-center gap-8 text-lg">
           <Link to="/#home" className="hover:text-blue-400 transition">
             Início
           </Link>
@@ -26,6 +27,8 @@ export default function Navbar() {
           <Link to="/#contact" className="hover:text-blue-400 transition">
             Contato
           </Link>
+
+          <AdminAccess />
         </div>
         <button
           className="
