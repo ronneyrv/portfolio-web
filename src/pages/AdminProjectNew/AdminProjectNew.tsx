@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { createProject } from "../../services/projectsApi";
 
 function generateSlug(title: string) {
@@ -13,6 +14,7 @@ function generateSlug(title: string) {
 }
 
 export default function AdminProjectNew() {
+  const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [shortDescription, setShortDescription] = useState("");
   const [description, setDescription] = useState("");
@@ -20,27 +22,41 @@ export default function AdminProjectNew() {
   const [githubUrl, setGithubUrl] = useState("");
   const [demoUrl, setDemoUrl] = useState("");
   const [displayOrder, setDisplayOrder] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const slug = generateSlug(title);
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
+    setSubmitError("");
+    setIsSubmitting(true);
+
     const form = event.currentTarget;
     const formData = new FormData(form);
 
     const image = formData.get("image");
 
-    await createProject({
-      title,
-      slug,
-      shortDescription,
-      description,
-      image: image instanceof File && image.size > 0 ? image : null,
-      githubUrl,
-      demoUrl,
-      displayOrder: Number(displayOrder),
-    });
+    try {
+      await createProject({
+        title,
+        slug,
+        shortDescription,
+        description,
+        image: image instanceof File && image.size > 0 ? image : null,
+        githubUrl,
+        demoUrl,
+        displayOrder: Number(displayOrder),
+      });
+
+      navigate("/admin");
+    } catch (error) {
+      console.error("Error creating project:", error);
+      setSubmitError("Não foi possível criar o projeto.");
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -203,6 +219,12 @@ export default function AdminProjectNew() {
             />
           </div>
 
+          {submitError && (
+            <p className="rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-400">
+              {submitError}
+            </p>
+          )}
+
           <div className="flex justify-end gap-3 border-t border-slate-800 pt-6">
             <button
               type="button"
@@ -213,9 +235,10 @@ export default function AdminProjectNew() {
 
             <button
               type="submit"
-              className="rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-blue-500"
+              disabled={isSubmitting}
+              className="rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-blue-500 disabled:cursor-not-allowed disabled:opacity-50"
             >
-              Criar projeto
+              {isSubmitting ? "Criando..." : "Criar projeto"}
             </button>
           </div>
         </form>
