@@ -1,10 +1,34 @@
-import { FaEdit } from "react-icons/fa";
+import { useState } from "react";
+import { FaEdit, FaTrash } from "react-icons/fa";
+import { deleteProject } from "../../services/projectsApi";
 import { useNavigate } from "react-router-dom";
 import { useAdminProjects } from "../../hooks/admin/useAdminProjects";
 
 export default function Admin() {
   const navigate = useNavigate();
-  const { projects, loading, error } = useAdminProjects();
+  const [deleteError, setDeleteError] = useState("");
+  const { projects, loading, error, page, totalPages, setPage, removeProject } =
+    useAdminProjects();
+
+  async function handleDelete(id: number) {
+    const confirmed = window.confirm(
+      "Tem certeza que deseja excluir este projeto?",
+    );
+
+    if (!confirmed) {
+      return;
+    }
+
+    setDeleteError("");
+
+    try {
+      await deleteProject(id);
+      removeProject(id);
+    } catch (error) {
+      console.error("Error deleting project:", error);
+      setDeleteError("Não foi possível excluir o projeto.");
+    }
+  }
 
   return (
     <section className="grow px-8 py-12 lg:px-20">
@@ -26,6 +50,12 @@ export default function Admin() {
         )}
 
         {error && <p className="mt-8 text-red-400">{error}</p>}
+
+        {deleteError && (
+          <p className="mt-8 rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-400">
+            {deleteError}
+          </p>
+        )}
 
         {!loading && !error && (
           <div className="mt-8 overflow-hidden rounded-xl border border-slate-700 bg-slate-900">
@@ -94,19 +124,60 @@ export default function Admin() {
                       </td>
 
                       <td className="px-6 py-4 text-right">
-                        <button
-                          type="button"
-                          aria-label={`Editar ${project.title}`}
-                          className="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-slate-300 transition-colors hover:bg-slate-700 hover:text-blue-400"
-                        >
-                          <FaEdit />
-                          Editar
-                        </button>
+                        <div className="inline-flex items-center gap-2">
+                          <button
+                            type="button"
+                            aria-label={`Editar ${project.title}`}
+                            onClick={() =>
+                              navigate(`/admin/projects/${project.id}/edit`)
+                            }
+                            className="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-slate-300 transition-colors hover:bg-slate-700 hover:text-blue-400"
+                          >
+                            <FaEdit />
+                            Editar
+                          </button>
+
+                          <button
+                            type="button"
+                            aria-label={`Excluir ${project.title}`}
+                            onClick={() => handleDelete(project.id)}
+                            className="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-slate-300 transition-colors hover:bg-slate-700 hover:text-red-400"
+                          >
+                            <FaTrash />
+                            Excluir
+                          </button>
+                        </div>
                       </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
+
+              {totalPages > 1 && (
+                <div className="flex items-center justify-between border-t border-slate-700 px-6 py-4">
+                  <button
+                    type="button"
+                    disabled={page === 0}
+                    onClick={() => setPage(page - 1)}
+                    className="rounded-lg px-4 py-2 text-sm font-medium text-slate-300 transition-colors hover:bg-slate-800 hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
+                  >
+                    Anterior
+                  </button>
+
+                  <span className="text-sm text-slate-400">
+                    Página {page + 1} de {totalPages}
+                  </span>
+
+                  <button
+                    type="button"
+                    disabled={page >= totalPages - 1}
+                    onClick={() => setPage(page + 1)}
+                    className="rounded-lg px-4 py-2 text-sm font-medium text-slate-300 transition-colors hover:bg-slate-800 hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
+                  >
+                    Próxima
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         )}

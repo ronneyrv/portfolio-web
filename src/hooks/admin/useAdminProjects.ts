@@ -44,6 +44,12 @@ export function useAdminProjects() {
     fetchProjects();
   }, [page]);
 
+  function removeProject(id: number) {
+    setProjects((currentProjects) =>
+      currentProjects.filter((project) => project.id !== id),
+    );
+  }
+
   return {
     projects,
     loading,
@@ -51,5 +57,6 @@ export function useAdminProjects() {
     page,
     totalPages,
     setPage,
+    removeProject,
   };
 }

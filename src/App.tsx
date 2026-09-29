@@ -12,6 +12,7 @@ import ProjectDetails from "./pages/ProjectDetails/ProjectDetails";
 import { RequireAdmin } from "./auth/RequireAdmin";
 import Admin from "./pages/Admin/Admin";
 import AdminProjectNew from "./pages/AdminProjectNew/AdminProjectNew";
+import AdminProjectEdit from "./pages/AdminProjectEdit/AdminProjectEdit";
 
 function ScrollToHash() {
   const { hash } = useLocation();
@@ -62,6 +63,10 @@ function App() {
           <Route element={<RequireAdmin />}>
             <Route path="/admin" element={<Admin />} />
             <Route path="/admin/projects/new" element={<AdminProjectNew />} />
+            <Route
+              path="/admin/projects/:id/edit"
+              element={<AdminProjectEdit />}
+            />
           </Route>
         </Routes>
       </main>

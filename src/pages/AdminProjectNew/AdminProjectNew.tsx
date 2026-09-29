@@ -1,4 +1,5 @@
 import { useState } from "react";
+import type { SubmitEventHandler } from "react";
 import { useNavigate } from "react-router-dom";
 import { createProject } from "../../services/projectsApi";
 
@@ -18,7 +19,6 @@ export default function AdminProjectNew() {
   const [title, setTitle] = useState("");
   const [shortDescription, setShortDescription] = useState("");
   const [description, setDescription] = useState("");
-  //   const [image, setImage] = useState<File | null>(null);
   const [githubUrl, setGithubUrl] = useState("");
   const [demoUrl, setDemoUrl] = useState("");
   const [displayOrder, setDisplayOrder] = useState("");
@@ -27,7 +27,7 @@ export default function AdminProjectNew() {
 
   const slug = generateSlug(title);
 
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  const handleSubmit: SubmitEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault();
 
     setSubmitError("");
@@ -57,7 +57,7 @@ export default function AdminProjectNew() {
     } finally {
       setIsSubmitting(false);
     }
-  }
+  };
 
   return (
     <section className="grow px-8 py-12 lg:px-20">
