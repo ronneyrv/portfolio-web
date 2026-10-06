@@ -59,7 +59,7 @@ export default function ProjectDetails() {
               {project.shortDescription}
             </p>
 
-            <p className="mt-8 text-gray-300 leading-relaxed">
+            <p className="mt-8 text-gray-300 leading-relaxed text-justify">
               {project.description}
             </p>
 

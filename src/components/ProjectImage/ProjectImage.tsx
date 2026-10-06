@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { optimizeImage } from "../../utils/cloudinary";
+import { optimizeGalleryImage, optimizeImage } from "../../utils/cloudinary";
 
 interface Props {
   src: string;
@@ -15,7 +15,7 @@ export default function ProjectImage({ src, alt, variant = "default" }: Props) {
   return (
     <div
       className={`relative
-      ${variant === "gallery" ? "min-h-105 lg:min-h-130" : "h-56"}
+      ${variant === "gallery" ? "h-154" : "h-56"}
       ${variant === "gallery" ? "" : "bg-slate-100"}
       flex
       items-center
@@ -23,7 +23,13 @@ export default function ProjectImage({ src, alt, variant = "default" }: Props) {
       overflow-hidden`}
     >
       <img
-        src={error ? fallback : optimizeImage(src)}
+        src={
+          error
+            ? fallback
+            : variant === "gallery"
+              ? optimizeGalleryImage(src)
+              : optimizeImage(src)
+        }
         alt={alt}
         onError={() => setError(true)}
         className="w-full h-full object-contain p-2"
