@@ -2,7 +2,7 @@ import { useState } from "react";
 import { optimizeGalleryImage, optimizeImage } from "../../utils/cloudinary";
 
 interface Props {
-  src: string;
+  src: string | null;
   alt: string;
   variant?: "default" | "gallery";
 }
@@ -11,6 +11,13 @@ export default function ProjectImage({ src, alt, variant = "default" }: Props) {
   const [error, setError] = useState(false);
 
   const fallback = "https://placehold.co/800x400/0f172a/ffffff?text=Project";
+
+  const imageSrc =
+    error || !src
+      ? fallback
+      : variant === "gallery"
+        ? optimizeGalleryImage(src)
+        : optimizeImage(src);
 
   return (
     <div
@@ -23,13 +30,7 @@ export default function ProjectImage({ src, alt, variant = "default" }: Props) {
       overflow-hidden`}
     >
       <img
-        src={
-          error
-            ? fallback
-            : variant === "gallery"
-              ? optimizeGalleryImage(src)
-              : optimizeImage(src)
-        }
+        src={imageSrc}
         alt={alt}
         onError={() => setError(true)}
         className="w-full h-full object-contain p-2"
